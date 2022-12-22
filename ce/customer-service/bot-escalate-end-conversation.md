@@ -215,13 +215,13 @@ namespace Microsoft.Bot.Builder.EchoBot
                 IActivity replyActivity = MessageFactory.Text($"Echo: {turnContext.Activity.Text}");
 
                 // Replace with your own condition for bot escalation
-                if (turnContext.Activity.Text.Equals("escalate", StringCompari-son.InvariantCultureIgnoreCase))
+                if (turnContext.Activity.Text.Equals("escalate", StringComparison.InvariantCultureIgnoreCase))
                 {
                     Dictionary<string, object> contextVars = new Dictionary<string, object>() { { "Bo-tHandoffTopic", "CreditCard" } };
                     OmnichannelBotClient.AddEscalationContext(replyActivity, contextVars);
                 }
                 // Replace with your own condition for bot end conversation
-                else if (turnContext.Activity.Text.Equals("endconversation", StringCompari-son.InvariantCultureIgnoreCase))
+                else if (turnContext.Activity.Text.Equals("endconversation", StringComparison.InvariantCultureIgnoreCase))
                 {
                     OmnichannelBotClient.AddEndConversationContext(replyActivity);
                 }
@@ -242,7 +242,7 @@ namespace Microsoft.Bot.Builder.EchoBot
         /// <param name="turnContext">TurnContext</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns></returns>
-        protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurn-Context<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
+        protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
         {
             foreach (var member in membersAdded)
             {
